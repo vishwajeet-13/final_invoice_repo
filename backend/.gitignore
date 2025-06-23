@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Environment
+.env
+.env.*
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+*.iml
+
+# Migrations (optional – only if generated automatically)
+**/migrations/**/ __pycache__/
+**/migrations/**/ *.py[cod]
+# Uncomment the next line to ignore all migration files
+# **/migrations/*.py
