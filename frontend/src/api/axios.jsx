@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // const baseURL = 'http://localhost:8000/api';
 
-// const isDevelopment = import.meta.env.MODE === 'development'
+const isDevelopment = import.meta.env.MODE === 'development'
 const myBaseUrl = isDevelopment ? import.meta.env.VITE_API_BASE_URL_LOCAL : import.meta.env.VITE_API_BASE_URL_DEPLOY
 // const myBaseUrl =  import.meta.env.VITE_API_BASE_URL_LOCAL
 
