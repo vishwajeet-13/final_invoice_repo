@@ -173,11 +173,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 # FIXED STATIC FILES CONFIGURATION
-STATIC_URL = '/static/'
+STATIC_URL = '/assets/'
 
 # For development - serve files from frontend/dist
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/dist'),
+    os.path.join(BASE_DIR, 'frontend/dist/assets'),
 ]
 
 # For production - where collectstatic puts files
