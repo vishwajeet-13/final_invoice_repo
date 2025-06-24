@@ -10,7 +10,6 @@ export const UserProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    console.log("User context updated:", user);
   }, [user]);
 
   const login = (userData) => {

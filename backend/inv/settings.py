@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%(@2tn*$#k9c*e^tfpaoayvwo3+4czn9u+epx3&q4wzol*%m-v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['invoice-backend-846x.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [ '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -64,10 +64,11 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-     'https://invoice-frontend-sft3.onrender.com',
-     'https://invoice-backend-846x.onrender.com'
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://localhost:5173"
 ]
+
 
 SITE_ID = 1 
 ROOT_URLCONF = 'inv.urls'

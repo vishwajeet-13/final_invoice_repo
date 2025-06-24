@@ -8,6 +8,7 @@ import { useUser } from "../context/UserContext";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import axios from "../api/axios";
 
 const CreateInvoice = () => {
   const { user } = useUser();
@@ -52,13 +53,12 @@ const CreateInvoice = () => {
     const loadPartyData = async () => {
       setIsLoadingParties(true);
       try {
-        const response = await fetch("/parties");
+        const response = await axios.get("/parties");
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
 
-        const data = await response.json();
+
+        const data = response.data
+
         setPartyOptions(data);
         setIsLoadingParties(false);
       } catch (error) {
@@ -110,7 +110,7 @@ const CreateInvoice = () => {
       party: { c_name: "", address: "", contact: "", gst: "" },
     });
   };
-  console.log(invoiceData.party.c_name)
+
 
   const onSubmit = async (data) => {
     if (!invoiceData.party.c_name) {
@@ -155,27 +155,15 @@ const CreateInvoice = () => {
     };
 
     try {
-      const response = await fetch(
-        "https://invoice-backend-846x.onrender.com/invoices/create/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
+
+      const response = await axios.post(
+        "/invoices/create/",
+        payload
       );
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(
-          `HTTP error! status: ${response.status}, message: ${JSON.stringify(
-            errorData
-          )}`
-        );
-      }
 
-      const result = await response.json();
+
+      const result = response.data
 
       toast.success("Invoice Created Successfully");
       resetForm();

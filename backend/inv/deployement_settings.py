@@ -23,7 +23,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://invoice-frontend-sft3.onrender.com'
+    ''
 ]
 
 STORAGES = {

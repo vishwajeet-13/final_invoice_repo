@@ -1,6 +1,7 @@
 import { useMemo, useCallback, useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../context/UserContext";
+import axios from "../api/axios";
 
 const PreviewInvoice = () => {
   const navigate = useNavigate();
@@ -18,15 +19,13 @@ const PreviewInvoice = () => {
           return;
         }
 
-        const response = await fetch(
-          `https://invoice-backend-846x.onrender.com/invoices/latest/`
+        const response = await axios.get(
+          `/invoices/latest/`
         );
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+       
 
-        const data = await response.json();
+        const data = response.data
         setInvoice(data);
         setLoading(false);
       } catch (error) {

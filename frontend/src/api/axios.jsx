@@ -1,10 +1,12 @@
 // axiosInstance.js
 import axios from 'axios';
 
-// const baseURL = 'http://localhost:8000/api';
+// const myBaseUrl = 'http://localhost:8000/api';
 
-const isDevelopment = import.meta.env.MODE === 'development'
-const myBaseUrl = isDevelopment ? import.meta.env.VITE_API_BASE_URL_LOCAL : import.meta.env.VITE_API_BASE_URL_DEPLOY
+
+const isDevelopment = import.meta.env.MODE === 'development';
+const myBaseUrl = isDevelopment ? import.meta.env.VITE_API_BASE_URL_LOCAL : import.meta.env.VITE_API_BASE_URL_DEPLOY;
+
 // const myBaseUrl =  import.meta.env.VITE_API_BASE_URL_LOCAL
 
 const axiosInstance = axios.create({
@@ -52,7 +54,6 @@ axiosInstance.interceptors.response.use(
 
         return axiosInstance(originalRequest);
       } catch (refreshError) {
-        console.log('Token refresh failed:', refreshError);
         localStorage.removeItem('user');
         window.location.href = '/login';
         return Promise.reject(refreshError);

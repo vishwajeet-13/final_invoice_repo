@@ -24,7 +24,6 @@ const ItemTable = ({ onItemsChange }) => {
           gst: parseFloat(row.gst) || 0,
         }));
 
-      console.log("ItemTable sending to parent:", formattedItems);
       onItemsChange(formattedItems);
     }
   };
