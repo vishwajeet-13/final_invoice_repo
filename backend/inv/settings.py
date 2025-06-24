@@ -68,7 +68,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-   'https://final-invoice-repo.onrender.com'
+   'https://final-invoice-repo.onrender.com',
+   "*"
 ]
 
 SITE_ID = 1 
